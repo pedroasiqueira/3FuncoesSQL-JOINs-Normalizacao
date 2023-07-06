@@ -102,3 +102,19 @@ GERANDO VALORES ALEATÓRIOS
 `SELECT RAND();` - gera vaor aleatório entre 0 e 1
 `SELECT ROUND(7 + (RAND() * 6));`
 - gera valor aleatório entre 7 e 13. É usado o `ROUND` para que seja um valor inteiro
+
+TRABALHANDO COM DATAS
+`SELECT CURRENT_DATE();` -- YYYY-MM-DD
+`SELECT NOW();` -- YYYY-MM-DD HH:MM:SS
+`SELECT DATEDIFF('2020-01-31', '2020-01-01');` -- 30
+`SELECT DATEDIFF('2020-01-01', '2020-01-31');` -- -30
+`SELECT TIMEDIFF('08:30:10', '09:30:10');` -- -01:00:00
+`SELECT TIMEDIFF('2021-08-11 08:30:10', '2021-08-01 09:30:10');` -- -239:00:00
+`SELECT YEAR(CURRENT_DATE());` -- retorna o ano atual
+`SELECT HOUR(NOW());` -- retorna a hora atual
+Monte uma query que exiba a diferença de dias entre '2030-01-20' e hoje.
+```sql
+SELECT DATEDIFF('2030-01-20', NOW());
+-- OU
+SELECT DATEDIFF('2030-01-20', CURRENT_DATE());
+```
