@@ -118,3 +118,25 @@ SELECT DATEDIFF('2030-01-20', NOW());
 -- OU
 SELECT DATEDIFF('2030-01-20', CURRENT_DATE());
 ```
+
+
+FUNÇÕES DE AGREGAÇÃO
+`SELECT AVG(replacement_cost) FROM sakila.film;` -- 19.984000 (Média entre todos registros)
+`SELECT MIN(replacement_cost) FROM sakila.film;` -- 9.99 (Menor valor encontrado)
+`SELECT MAX(replacement_cost) FROM sakila.film;` -- 29.99 (Maior valor encontrado)
+`SELECT SUM(replacement_cost) FROM sakila.film;` -- 19984.00 (Soma de todos registros)
+`SELECT COUNT(replacement_cost) FROM sakila.film;` -- 1000 registros encontrados (Quantidade)
+Monte um query que exiba:
+    A média de duração dos filmes e dê o nome da coluna de ‘Media de Duracao’;
+    A duração mínima dos filmes como ‘Duracao Minima’;
+    A duração máxima dos filmes como ‘Duracao Maxima’;
+    A soma de todas as durações como ‘Tempo de Exibicao Total’;
+    E, finalmente, a quantidade total de filmes cadastrados na tabela sakila.film como ‘Filmes Registrados’.
+```sql
+SELECT AVG(length) AS 'Media de Duracao',
+       MIN(length) AS 'Duracao Minima',
+       MAX(length) AS 'Duracao Maxima',
+       SUM(length) AS 'Tempo de Exibicao Total',
+       COUNT(*) AS 'Filmes Registrados'
+FROM sakila.film;
+```
