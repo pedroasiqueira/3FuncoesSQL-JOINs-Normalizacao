@@ -47,3 +47,4 @@ FROM sakila.film;
 ```
 
 FUNÇÕES MATEMÁTICAS NO MYSQL
+a
