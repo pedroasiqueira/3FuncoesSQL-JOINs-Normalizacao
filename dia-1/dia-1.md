@@ -48,10 +48,10 @@ FROM sakila.film;
 
 FUNÇÕES MATEMÁTICAS NO MYSQL
 
- DIV - Retorna resultado inteiro de uma divisão, ignorando as casas decimais
+  `DIV` - Retorna resultado inteiro de uma divisão, ignorando as casas decimais
 `SELECT 10 DIV 3;` return = 3;
 
-MOD - Retorna o resto da divisão.(Descobrir se um número é impar ou par se resto for 0 ou 1, quando dividido por 2)
+  `MOD` - Retorna o resto da divisão.(Descobrir se um número é impar ou par se resto for 0 ou 1, quando dividido por 2)
 `SELECT 10 MOD 2;` return = 0
 `SELECT 14 MOD 3;` return = 2
 `SELECT 13 MOD 2;` return = 1
@@ -67,3 +67,38 @@ Temos uma sala de cinema que comporta 220 pessoas. Quantos grupos completos de 1
 Utilizando o resultado anterior, responda à seguinte pergunta: temos lugares sobrando? Se sim, quantos?
 `SELECT IF(220 MOD 12 = 0, 'NÃO', CONCAT('SIM, ', 220 MOD 12));`
 
+
+
+ARREDONDANDO VALORES
+  `ROUND` - se for >= a 0,5 arrendo pra cima, se for <= 0,5, pra baixo
+`SELECT ROUND(10.4925);` -- 10
+`SELECT ROUND(10.5136);` -- 11
+`SELECT ROUND(-10.5136);` -- -11
+`SELECT ROUND(10.4925, 2);` -- 10.49
+`SELECT ROUND(10.4925, 3);` -- 10.493
+
+  `CEIL` - arredonda sempre para cima
+`SELECT CEIL(10.51);` -- 11
+`SELECT CEIL(10.49);` -- 11
+`SELECT CEIL(10.2);` -- 11
+
+  `FLOOR` - arredonda sempre para baixo
+`SELECT CEIL(10.51);` -- 10
+`SELECT CEIL(10.49);` -- 10
+`SELECT CEIL(10.2);` -- 10
+
+
+EXPONENCIAÇÃO E RAIZ QUADRADA
+  `POW` - exponenciação
+`SELECT POW(2, 2);` -- 4
+`SELECT POW(2, 4);` -- 16
+
+  `SQRT` - raiz quadrada
+`SELECT SQRT(9);` -- 3
+`SELECT SQRT(16);` -- 4
+
+GERANDO VALORES ALEATÓRIOS
+  `RAND`
+`SELECT RAND();` - gera vaor aleatório entre 0 e 1
+`SELECT ROUND(7 + (RAND() * 6));`
+- gera valor aleatório entre 7 e 13. É usado o `ROUND` para que seja um valor inteiro
