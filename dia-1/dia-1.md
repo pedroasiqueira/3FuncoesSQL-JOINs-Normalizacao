@@ -47,4 +47,23 @@ FROM sakila.film;
 ```
 
 FUNÇÕES MATEMÁTICAS NO MYSQL
-a
+
+ DIV - Retorna resultado inteiro de uma divisão, ignorando as casas decimais
+`SELECT 10 DIV 3;` return = 3;
+
+MOD - Retorna o resto da divisão.(Descobrir se um número é impar ou par se resto for 0 ou 1, quando dividido por 2)
+`SELECT 10 MOD 2;` return = 0
+`SELECT 14 MOD 3;` return = 2
+`SELECT 13 MOD 2;` return = 1
+
+Desafios com DIV e MOD:
+
+Monte uma query usando o MOD juntamente com o IF para descobrir se o valor 15 é par ou ímpar. Chame essa coluna de ‘Par ou Ímpar’, onde ela pode dizer ‘Par’ ou ‘Ímpar’.
+`SELECT IF(15 MOD 2 = 0, 'Par', 'Impar') AS 'Par ou Ímpar';`
+
+Temos uma sala de cinema que comporta 220 pessoas. Quantos grupos completos de 12 pessoas podemos levar ao cinema sem que ninguém fique de fora?
+`SELECT 220 DIV 12;`
+
+Utilizando o resultado anterior, responda à seguinte pergunta: temos lugares sobrando? Se sim, quantos?
+`SELECT IF(220 MOD 12 = 0, 'NÃO', CONCAT('SIM, ', 220 MOD 12));`
+
